@@ -8,7 +8,7 @@ st.title("📖 AI 英文影片單字助手")
 st.caption("貼上字幕，點擊單字，AI 幫你做筆記！")
 
 # API 設定
-genai.configure(api_key="AIzaSyC83PWrwKxmVRN6cZjM3pptUYkKJkLP2Bo")
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # 初始化 Session State (用來儲存選取的單字)
 if 'words' not in st.session_state:
@@ -55,5 +55,6 @@ if st.button("🚀 生成 AI 學習筆記", type="primary"):
                 )
             except Exception as e:
                 st.error(f"發生錯誤: {e}")
+
 
 st.info("💡 提示：在手機上打開網址，就能隨時練習喔！")
